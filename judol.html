@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slot Zeus Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('2.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      color: white;
+      text-align: center;
+    }
+    .logo {
+      width: 200px;
+      margin: 20px auto;
+      display: block;
+    }
+    .container {
+      background: rgba(0,0,0,0.6);
+      margin: 20px auto;
+      padding: 20px;
+      width: 300px;
+      border-radius: 10px;
+    }
+    .btn {
+      background: gold;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input[type="text"], input[type="password"] {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    .prank {
+      display: none;
+      font-size: 18px;
+      font-weight: bold;
+      color: red;
+      margin-top: 20px;
+    }
+    .tobat-btn {
+      display: none;
+      background: red;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples//SoundHelix-Song-1.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <img src="1.png" class="logo" alt="Slot Zeus">
+
+  <!-- LOGIN GUI -->
+  <div class="container" id="login-page">
+    <h2>Login Akun Anda</h2>
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button class="btn" onclick="login()">Login</button>
+  </div>
+
+  <!-- MAIN SLOT PAGE -->
+  <div class="container" id="slot-page" style="display: none;">
+    <h2>Saldo Anda: Rp <span id="saldo">100 Ribu free 1 kali main!</span></h2>
+    <button class="btn" onclick="spin()">Spin Sekarang</button>
+    <div class="prank" id="prank">SELAMAT ANDA KENA PRANK!<br>CEPAT TOBAT BEBAN</div>
+    <button class="tobat-btn" id="tobat" onclick="tobat()">Tobat Sekarang</button>
+  </div>
+
+  <script>
+    let saldo = 100000;
+
+    function login() {
+      // Ambil input user dan password (tidak divalidasi karena prank)
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      if(user && pass){
+        document.getElementById('login-page').style.display = 'none';
+        document.getElementById('slot-page').style.display = 'block';
+      } else {
+        alert("Masukkan username dan password!");
+      }
+    }
+
+    function spin() {
+      saldo = 0;
+      document.getElementById('saldo').innerText = saldo;
+      document.getElementById('prank').style.display = 'block';
+      document.getElementById('tobat').style.display = 'inline-block';
+    }
+
+    function tobat() {
+      window.location.href = 'https://youtu.be/uL4mm6bYnsc?si=MlWhFKrCtT5bC0oY';
+    }
+  </script>
+
+</body>
+</html>
